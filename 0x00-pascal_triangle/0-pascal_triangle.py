@@ -4,6 +4,7 @@
 Generate Pascal’s Triangle up to n rows.
 """
 
+
 def pascal_triangle(n):
     """
     Return a list of lists representing the first n rows
