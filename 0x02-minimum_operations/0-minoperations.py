@@ -5,6 +5,7 @@ needed to result in exactly n H characters in a text file that
 initially contains a single "H".
 """
 
+
 def minOperations(n):
     """
     Returns the minimum number of operations to get n 'H' characters.
