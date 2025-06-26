@@ -44,9 +44,3 @@ def is_winner(x, nums):
     if ben_score > maria_score:
         return "Ben"
     return None
-
-
-if __name__ == "__main__":
-    # Example usage
-    result = is_winner(5, [2, 5, 1, 4, 3])
-    print(result)
