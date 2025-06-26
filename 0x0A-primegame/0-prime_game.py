@@ -15,8 +15,10 @@ def isprime(n):
 
 def isWinner(x, nums):
     """ Checks howmany prime integers less than numbers in nums """
-    if x < 1 or x != len(nums) or not nums:
+    if x < 0 or x != len(nums) or not nums:
         return None
+    if x = 0 and nums == []:
+        return "Ben"
     benMaria = []
     Marias = 0
     Bens = 0
