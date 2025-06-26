@@ -1,43 +1,52 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 """
-file to determine the winner
+File to determine the winner of the Prime Game.
 """
 
 
-def isprime(n):
-    """ Checks if the number is a prime """
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
+def is_prime(n):
+    """Return True if n is a prime number, else False."""
+    if n <= 1:
+        return False
+    limit = int(n ** 0.5) + 1
+    for divisor in range(2, limit):
+        if n % divisor == 0:
             return False
     return True
 
 
-def isWinner(x, nums):
-    """ Checks howmany prime integers less than numbers in nums """
-    if x < 1 or x != len(nums) or not nums:
+def is_winner(x, nums):
+    """
+    Play x rounds of the Prime Game with list nums and
+    return the overall winner: "Maria", "Ben", or None.
+    """
+    # Validate inputs
+    if x < 1 or not nums or x > len(nums):
         return None
-    benMaria = []
-    Marias = 0
-    Bens = 0
+
+    ben_score = 0
+    maria_score = 0
+
     for i in range(x):
-        howmanyprimes = 0
+        count = 0
         for j in range(1, nums[i] + 1):
-            if isprime(j):
-                howmanyprimes += 1
-        if howmanyprimes % 2 == 1:
-            benMaria.append("Ben")
+            if is_prime(j):
+                count += 1
+        # Maria wins if count of primes is odd
+        if count % 2 == 1:
+            maria_score += 1
         else:
-            benMaria.append("Maria")
-    for i in benMaria:
-        if i == "Ben":
-            Bens += 1
-        elif i == "Maria":
-            Marias += 1
-    if Bens > Marias:
-        return "Ben"
-    elif Marias > Bens:
+            ben_score += 1
+
+    if maria_score > ben_score:
         return "Maria"
-    else:
-        print("none")
-        return None
+    if ben_score > maria_score:
+        return "Ben"
+    return None
+
+
+if __name__ == "__main__":
+    # Example usage
+    result = is_winner(5, [2, 5, 1, 4, 3])
+    print(result)
