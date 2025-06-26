@@ -12,9 +12,10 @@ def isprime(n):
             return False
     return True
 
+
 def isWinner(x, nums):
     """ Checks howmany prime integers less than numbers in nums """
-    if x < 1 or not nums:
+    if x < 1 or x != len(nums) or not nums:
         return None
     benMaria = []
     Marias = 0
@@ -40,5 +41,3 @@ def isWinner(x, nums):
     else:
         print("none")
         return None
-
-isWinner(5, [2, 5, 1, 4, 3])
