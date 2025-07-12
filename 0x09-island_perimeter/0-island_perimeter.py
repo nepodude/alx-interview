@@ -108,7 +108,10 @@ def vertical_calculator(array):
             """When the 1 is preceeded by a 1 and followed by a 0"""
             power_of_array += 1
         if (
-            0 < helper < len(array) - 1 and item == 1 and array[helper - 1] == 0 and array[helper + 1] == 1
+            0 < helper < len(array) - 1
+            and item == 1
+            and array[helper - 1] == 0
+            and array[helper + 1] == 1
         ):
             """When the 1 is preceeded by a 0 and followed by a 1"""
             power_of_array += 1
