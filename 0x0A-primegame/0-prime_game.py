@@ -1,3 +1,18 @@
+#!/usr/bin/python3
+
+"""
+file to determine the winner
+"""
+
+
+def isprime(n):
+    """ Checks if the number is a prime """
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+
 def isWinner(x, nums):
     if not isinstance(x, int) or not nums or x < 1:
         return None
