@@ -47,23 +47,17 @@ def island_perimeter(grid):
             if 0 < counter < len_grid - 1:
                 """dealing with all rows in between"""
                 if (
-                    element == 1
-                    and grid[counter - 1][semi_counter] == 1
-                    and grid[counter + 1][semi_counter] == 0
+                    element == 1 and grid[counter - 1][semi_counter] == 1 and grid[counter + 1][semi_counter] == 0
                 ):
                     """When a 1 has a 1 above and a 0 below"""
                     horizontal_perimeter += 1
                 if (
-                    element == 1
-                    and grid[counter - 1][semi_counter] == 0
-                    and grid[counter + 1][semi_counter] == 1
+                    element == 1 and grid[counter - 1][semi_counter] == 0 and grid[counter + 1][semi_counter] == 1
                 ):
                     """When a 1 has a 0 above and a 1 below"""
                     horizontal_perimeter += 1
                 if (
-                    element == 1
-                    and grid[counter - 1][semi_counter] == 0
-                    and grid[counter + 1][semi_counter] == 0
+                    element == 1 and grid[counter - 1][semi_counter] == 0 and grid[counter + 1][semi_counter] == 0
                 ):
                     """When a 1 has a 0 below and above"""
                     horizontal_perimeter += 2
@@ -103,17 +97,13 @@ def vertical_calculator(array):
             power_of_array += 1
         if (
             0 < helper < len(array) - 1
-            and item == 1
-            and array[helper - 1] == 0
-            and array[helper + 1] == 0
+            and item == 1 and array[helper - 1] == 0 and array[helper + 1] == 0
         ):
             """when the 1 is surrounded by 0's"""
             power_of_array += 2
         if (
             0 < helper < len(array) - 1
-            and item == 1
-            and array[helper - 1] == 1
-            and array[helper + 1] == 0
+            and item == 1 and array[helper - 1] == 1 and array[helper + 1] == 0
         ):
             """When the 1 is preceeded by a 1 and followed by a 0"""
             power_of_array += 1
