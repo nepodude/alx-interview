@@ -47,17 +47,23 @@ def island_perimeter(grid):
             if 0 < counter < len_grid - 1:
                 """dealing with all rows in between"""
                 if (
-                    element == 1 and grid[counter - 1][semi_counter] == 1 and grid[counter + 1][semi_counter] == 0
+                    element == 1 and
+                    grid[counter - 1][semi_counter] == 1 and
+                    grid[counter + 1][semi_counter] == 0
                 ):
                     """When a 1 has a 1 above and a 0 below"""
                     horizontal_perimeter += 1
                 if (
-                    element == 1 and grid[counter - 1][semi_counter] == 0 and grid[counter + 1][semi_counter] == 1
+                    element == 1 and
+                    grid[counter - 1][semi_counter] == 0 and
+                    grid[counter + 1][semi_counter] == 1
                 ):
                     """When a 1 has a 0 above and a 1 below"""
                     horizontal_perimeter += 1
                 if (
-                    element == 1 and grid[counter - 1][semi_counter] == 0 and grid[counter + 1][semi_counter] == 0
+                    element == 1 and
+                    grid[counter - 1][semi_counter] == 0 and
+                    grid[counter + 1][semi_counter] == 0
                 ):
                     """When a 1 has a 0 below and above"""
                     horizontal_perimeter += 2
