@@ -14,31 +14,34 @@ def isprime(n):
 
 
 def isWinner(x, nums):
-    if not isinstance(x, int) or not nums or x < 1:
+    """ Checks howmany prime integers less than numbers in nums """
+    if x < 1 or x != len(nums) or not nums:
         return None
-
-    n = max(nums)
-    sieve = [True] * (n + 1)
-    sieve[0] = sieve[1] = False
-    for i in range(2, int(n ** 0.5) + 1):
-        if sieve[i]:
-            for j in range(i * i, n + 1, i):
-                sieve[j] = False
-
-    prime_counts = [0] * (n + 1)
-    for i in range(1, n + 1):
-        prime_counts[i] = prime_counts[i - 1] + int(sieve[i])
-
-    maria = 0
-    ben = 0
-    for i in range(min(x, len(nums))):
-        if prime_counts[nums[i]] % 2 == 1:
-            maria += 1
+    if any(not isinstance(i, int) for i in nums):
+        return None
+    if not isinstance(x, int):
+        return None
+    benMaria = []
+    Marias = 0
+    Bens = 0
+    for i in range(x):
+        howmanyprimes = 0
+        for j in range(1, nums[i] + 1):
+            if isprime(j):
+                howmanyprimes += 1
+        if howmanyprimes % 2 == 1:
+            benMaria.append("Ben")
         else:
-            ben += 1
-
-    if maria > ben:
-        return "Maria"
-    elif ben > maria:
+            benMaria.append("Maria")
+    for i in benMaria:
+        if i == "Ben":
+            Bens += 1
+        elif i == "Maria":
+            Marias += 1
+    if Bens > Marias:
         return "Ben"
-    return None
+    elif Marias > Bens:
+        return "Maria"
+    else:
+        print("none")
+        return None
